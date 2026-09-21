@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NSDC AI Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo-section">
+    <div class="logo">NSDC</div>
+    <div>
+      <h2>National Skill Development Corporation</h2>
+      <p>AI Assistant Prototype</p>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li>Home</li>
+    <li>Learner</li>
+    <li>Partners</li>
+    <li>Schemes</li>
+    <li>About</li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <span>NSDC AI ASSISTANT</span>
+    <h1>Skills for a stronger India.</h1>
+    <p>
+      Ask questions about Skill India Digital, registration,
+      courses, e-KYC and learner support.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CHAT ================= -->
+
+<div class="chat-widget" id="chatWidget">
+
+  <div class="chat-header">
+
+    <div class="header-left">
+
+      <!-- CLICK THIS TO COLLAPSE -->
+      <button id="chatToggle" class="bot-avatar">AI</button>
+
+      <div class="header-text">
+        <h3>NSDC Assistant</h3>
+        <p>Your guide to NSDC services</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="chat-body" id="chatBody">
+
+    <!-- Welcome stays permanently -->
+    <div class="welcome-section">
+
+      <div class="welcome-card">
+        <h4>Hi! I'm the NSDC Assistant</h4>
+
+        <p>I can help you with:</p>
+
+        <ul>
+          <li>Registration</li>
+          <li>e-KYC</li>
+          <li>Courses & Batches</li>
+          <li>Technical Support</li>
+        </ul>
+      </div>
+
+      <div class="quick-grid">
+
+        <button onclick="quickAsk('How do I register on Skill India Digital?')">
+          <div class="icon">👤</div>
+          <div class="title">Register</div>
+          <div class="subtitle">Create Skill India account</div>
+        </button>
+
+        <button onclick="quickAsk('Find skill courses')">
+          <div class="icon">📘</div>
+          <div class="title">Find Course</div>
+          <div class="subtitle">Explore skill programs</div>
+        </button>
+
+        <button onclick="quickAsk('What is e-KYC?')">
+          <div class="icon">🛡️</div>
+          <div class="title">e-KYC</div>
+          <div class="subtitle">Verify Aadhaar profile</div>
+        </button>
+
+        <button onclick="quickAsk('How do I get technical support?')">
+          <div class="icon">🎧</div>
+          <div class="title">Support</div>
+          <div class="subtitle">Technical assistance</div>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="chat-input">
+
+    <input
+      id="messageInput"
+      type="text"
+      placeholder="Ask your question..."
+    />
+
+    <button onclick="sendMessage()">➤</button>
+
+  </div>
+
+  <div class="footer">
+    Powered by NSDC · Verified responses only
+  </div>
+
+</div>
+
+<script>
+
+const chatWidget = document.getElementById("chatWidget")
+const chatToggle = document.getElementById("chatToggle")
+
+const chatBody = document.getElementById("chatBody")
+const input = document.getElementById("messageInput")
+
+const HISTORY_KEY = "nsdc-chat-history"
+
+function toggleChat(){
+
+  chatWidget.classList.toggle("collapsed")
+
+}
+
+chatToggle.addEventListener("click",toggleChat)
+
+function scrollBottom(){
+
+  chatBody.scrollTop = chatBody.scrollHeight
+
+}
+
+function save(msg){
+
+  const history = JSON.parse(sessionStorage.getItem(HISTORY_KEY)||"[]")
+
+  history.push(msg)
+
+  sessionStorage.setItem(HISTORY_KEY,JSON.stringify(history))
+
+}
+
+function addMessage(text,sender,meta={},persist=true){
+
+  const div = document.createElement("div")
+
+  div.className = sender==="user" ? "user-message":"bot-message"
+
+  div.innerHTML = `
+    <div>${text}</div>
+    ${meta.source ? `<div class="source">${meta.category || "NSDC"} • ${meta.source}</div>`:""}
+  `
+
+  chatBody.appendChild(div)
+
+  if(persist){
+
+    save({text,sender,meta})
+
+  }
+
+  scrollBottom()
+
+}
+
+function typing(){
+
+  const div=document.createElement("div")
+
+  div.id="typing"
+
+  div.className="bot-message typing"
+
+  div.innerHTML="<span></span><span></span><span></span>"
+
+  chatBody.appendChild(div)
+
+  scrollBottom()
+
+}
+
+function removeTyping(){
+
+  const t=document.getElementById("typing")
+
+  if(t) t.remove()
+
+}
+
+async function sendMessage(){
+
+  const message=input.value.trim()
+
+  if(!message) return
+
+  addMessage(message,"user")
+
+  input.value=""
+
+  typing()
+
+  try{
+
+    const res=await fetch("/chat",{
+
+      method:"POST",
+
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({message})
+
+    })
+
+    const data=await res.json()
+
+    removeTyping()
+
+    addMessage(data.answer,"bot",data)
+
+  }catch(e){
+
+    removeTyping()
+
+    addMessage("The assistant is currently unavailable.","bot")
+
+  }
+
+}
+
+function quickAsk(question){
+
+  input.value=question
+
+  sendMessage()
+
+}
+
+input.addEventListener("keypress",(e)=>{
+
+  if(e.key==="Enter") sendMessage()
+
+})
+
+const history=JSON.parse(sessionStorage.getItem(HISTORY_KEY)||"[]")
+
+history.forEach(m=>addMessage(m.text,m.sender,m.meta,false))
+
+</script>
+
+</body>
+</html>

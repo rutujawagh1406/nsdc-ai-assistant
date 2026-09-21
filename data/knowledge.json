@@ -1,0 +1,456 @@
+[
+  {
+    "id": "learner_001",
+    "category": "Learner",
+    "title": "Create Skill India Account",
+    "keywords": ["register", "signup", "create account", "registration"],
+    "content": "Create a Skill India Digital account using your mobile number and verify it with OTP.",
+    "source": "Skill India Digital",
+    "page": "Registration"
+  },
+  {
+    "id": "learner_002",
+    "category": "Learner",
+    "title": "Mobile OTP Verification",
+    "keywords": ["otp", "verify mobile", "verification"],
+    "content": "Every learner account requires OTP verification before profile creation.",
+    "source": "NSDC Support",
+    "page": "Registration"
+  },
+  {
+    "id": "learner_003",
+    "category": "Learner",
+    "title": "Complete Learner Profile",
+    "keywords": ["profile", "education", "personal details"],
+    "content": "Learners should complete their educational, personal and skill profile before applying for programs.",
+    "source": "Skill India Digital",
+    "page": "Profile"
+  },
+  {
+    "id": "learner_004",
+    "category": "Learner",
+    "title": "Aadhaar e-KYC",
+    "keywords": ["ekyc", "aadhaar", "kyc"],
+    "content": "Complete Aadhaar based e-KYC using the Aadhaar linked mobile number.",
+    "source": "NSDC Support",
+    "page": "Verification"
+  },
+  {
+    "id": "learner_005",
+    "category": "Learner",
+    "title": "Browse Courses",
+    "keywords": ["course", "training", "program"],
+    "content": "Learners can search skill courses by sector, location and training provider.",
+    "source": "Skill India Digital",
+    "page": "Courses"
+  },
+  {
+    "id": "learner_006",
+    "category": "Learner",
+    "title": "Sector Based Course Search",
+    "keywords": ["sector", "it", "healthcare", "manufacturing"],
+    "content": "Courses are organized under different industry sectors for easier discovery.",
+    "source": "Skill India Digital",
+    "page": "Courses"
+  },
+  {
+    "id": "learner_007",
+    "category": "Learner",
+    "title": "Training Batch Search",
+    "keywords": ["batch", "schedule", "timing"],
+    "content": "Learners can view available training batches, timings and training centre details.",
+    "source": "Skill India Digital",
+    "page": "Batch"
+  },
+  {
+    "id": "learner_008",
+    "category": "Learner",
+    "title": "Apply to Batch",
+    "keywords": ["apply", "enroll", "show interest"],
+    "content": "Selecting a batch submits an enrollment request to the respective Training Partner.",
+    "source": "Skill India Digital",
+    "page": "Application"
+  },
+  {
+    "id": "learner_009",
+    "category": "Learner",
+    "title": "Application Status",
+    "keywords": ["status", "application status", "tracking"],
+    "content": "Learners can monitor the progress of their enrollment requests from their dashboard.",
+    "source": "Skill India Digital",
+    "page": "Dashboard"
+  },
+  {
+    "id": "learner_010",
+    "category": "Learner",
+    "title": "Digital Learning Dashboard",
+    "keywords": ["dashboard", "learning portal"],
+    "content": "The learner dashboard provides course progress, certificates and enrolled programs.",
+    "source": "Skill India Digital",
+    "page": "Dashboard"
+  },
+  {
+    "id": "learner_011",
+    "category": "Learner",
+    "title": "Course Attendance",
+    "keywords": ["attendance", "lecture", "present"],
+    "content": "Attendance is maintained throughout the training period for eligible programs.",
+    "source": "NSDC",
+    "page": "Attendance"
+  },
+  {
+    "id": "learner_012",
+    "category": "Learner",
+    "title": "Assessments",
+    "keywords": ["assessment", "exam", "evaluation"],
+    "content": "Learners complete assessments based on the respective course and certification guidelines.",
+    "source": "NSDC",
+    "page": "Assessment"
+  },
+  {
+    "id": "learner_013",
+    "category": "Learner",
+    "title": "Digital Certificate",
+    "keywords": ["certificate", "completion"],
+    "content": "Eligible learners receive digital certification after successfully completing the program.",
+    "source": "NSDC",
+    "page": "Certification"
+  },
+  {
+    "id": "learner_014",
+    "category": "Learner",
+    "title": "Update Personal Details",
+    "keywords": ["edit profile", "update details"],
+    "content": "Learners can update profile information through their account settings.",
+    "source": "NSDC Support",
+    "page": "Profile"
+  },
+  {
+    "id": "learner_015",
+    "category": "Learner",
+    "title": "Forgot Password",
+    "keywords": ["forgot password", "reset password"],
+    "content": "Use the password recovery option available on the official login page.",
+    "source": "NSDC Support",
+    "page": "Login"
+  },
+  {
+    "id": "learner_016",
+    "category": "Learner",
+    "title": "Login Issues",
+    "keywords": ["cannot login", "login issue"],
+    "content": "Users experiencing login issues should verify their registered mobile number before contacting support.",
+    "source": "NSDC Support",
+    "page": "Login"
+  },
+  {
+    "id": "learner_017",
+    "category": "Learner",
+    "title": "Eligible Programs",
+    "keywords": ["eligibility", "eligible", "qualification"],
+    "content": "Eligibility varies by course and is displayed within the respective program details.",
+    "source": "Skill India Digital",
+    "page": "Courses"
+  },
+  {
+    "id": "learner_018",
+    "category": "Learner",
+    "title": "Learning Progress",
+    "keywords": ["progress", "completed modules"],
+    "content": "Learners can monitor completed modules and overall course progress through the portal.",
+    "source": "Skill India Digital",
+    "page": "Dashboard"
+  },
+
+  {
+    "id": "institution_001",
+    "category": "Institution",
+    "title": "University Partnership",
+    "keywords": ["university", "college", "institution"],
+    "content": "Universities can collaborate with NSDC to deliver industry aligned academic programs.",
+    "source": "NSDC",
+    "page": "Partnership"
+  },
+  {
+    "id": "institution_002",
+    "category": "Institution",
+    "title": "Student Onboarding",
+    "keywords": ["student onboarding", "admission"],
+    "content": "Institutions register students, verify academic records and provide learning access.",
+    "source": "NSDC",
+    "page": "Onboarding"
+  },
+  {
+    "id": "institution_003",
+    "category": "Institution",
+    "title": "Degree Programs",
+    "keywords": ["degree", "bba", "media"],
+    "content": "NSDC aligned degree programs combine academic learning with industry skill development.",
+    "source": "NSDC",
+    "page": "Academics"
+  },
+  {
+    "id": "institution_004",
+    "category": "Institution",
+    "title": "Student Verification",
+    "keywords": ["verify student", "documents"],
+    "content": "Institutions verify learner identity and educational documents before enrollment.",
+    "source": "NSDC",
+    "page": "Verification"
+  },
+  {
+    "id": "institution_005",
+    "category": "Institution",
+    "title": "LMS Access",
+    "keywords": ["lms", "portal access"],
+    "content": "Students receive LMS credentials after successful onboarding.",
+    "source": "NSDC",
+    "page": "LMS"
+  },
+  {
+    "id": "institution_006",
+    "category": "Institution",
+    "title": "Faculty Dashboard",
+    "keywords": ["faculty", "teacher", "dashboard"],
+    "content": "Faculty members can monitor attendance, assessments and learner engagement.",
+    "source": "NSDC",
+    "page": "Faculty"
+  },
+  {
+    "id": "institution_007",
+    "category": "Institution",
+    "title": "Academic Reports",
+    "keywords": ["report", "performance"],
+    "content": "Institutions can generate learner performance reports for academic monitoring.",
+    "source": "NSDC",
+    "page": "Reports"
+  },
+  {
+    "id": "institution_008",
+    "category": "Institution",
+    "title": "Semester Tracking",
+    "keywords": ["semester", "academic progress"],
+    "content": "Student progress can be monitored across semesters within the learning platform.",
+    "source": "NSDC",
+    "page": "Academics"
+  },
+  {
+    "id": "institution_009",
+    "category": "Institution",
+    "title": "Industry Projects",
+    "keywords": ["industry project", "capstone"],
+    "content": "Students participate in practical industry projects as part of applied learning.",
+    "source": "NSDC",
+    "page": "Projects"
+  },
+  {
+    "id": "institution_010",
+    "category": "Institution",
+    "title": "Placement Readiness",
+    "keywords": ["placement", "career"],
+    "content": "Programs emphasize employability, portfolios and industry readiness.",
+    "source": "NSDC",
+    "page": "Career"
+  },
+
+  {
+    "id": "tp_001",
+    "category": "Training Partner",
+    "title": "Training Partner Registration",
+    "keywords": ["training partner", "tp"],
+    "content": "Training Partners manage approved skill programs and learner batches.",
+    "source": "NSDC",
+    "page": "Training Partner"
+  },
+  {
+    "id": "tp_002",
+    "category": "Training Partner",
+    "title": "Create Training Batch",
+    "keywords": ["create batch", "new batch"],
+    "content": "Partners create batches with schedules, capacity and location details.",
+    "source": "NSDC",
+    "page": "Batch"
+  },
+  {
+    "id": "tp_003",
+    "category": "Training Partner",
+    "title": "Manage Attendance",
+    "keywords": ["attendance management"],
+    "content": "Attendance records are maintained for enrolled learners throughout the course.",
+    "source": "NSDC",
+    "page": "Attendance"
+  },
+  {
+    "id": "tp_004",
+    "category": "Training Partner",
+    "title": "Learner Enrollment Approval",
+    "keywords": ["approve learner", "enrollment"],
+    "content": "Training Partners review learner applications before confirming enrollment.",
+    "source": "NSDC",
+    "page": "Enrollment"
+  },
+  {
+    "id": "tp_005",
+    "category": "Training Partner",
+    "title": "Assessment Scheduling",
+    "keywords": ["schedule assessment"],
+    "content": "Partners schedule assessments according to the approved academic calendar.",
+    "source": "NSDC",
+    "page": "Assessment"
+  },
+  {
+    "id": "tp_006",
+    "category": "Training Partner",
+    "title": "Batch Capacity",
+    "keywords": ["capacity", "seat availability"],
+    "content": "Each batch has a predefined learner capacity managed by the Training Partner.",
+    "source": "NSDC",
+    "page": "Batch"
+  },
+  {
+    "id": "tp_007",
+    "category": "Training Partner",
+    "title": "Trainer Allocation",
+    "keywords": ["trainer", "faculty assignment"],
+    "content": "Training Partners assign trainers to batches based on program requirements.",
+    "source": "NSDC",
+    "page": "Faculty"
+  },
+  {
+    "id": "tp_008",
+    "category": "Training Partner",
+    "title": "Completion Reports",
+    "keywords": ["completion report"],
+    "content": "Partners generate completion reports after learner assessments are finalized.",
+    "source": "NSDC",
+    "page": "Reports"
+  },
+
+  {
+    "id": "employer_001",
+    "category": "Employer",
+    "title": "Employer Services",
+    "keywords": ["employer", "hire"],
+    "content": "Employers can connect with skilled candidates through NSDC initiatives.",
+    "source": "NSDC",
+    "page": "Employer"
+  },
+  {
+    "id": "employer_002",
+    "category": "Employer",
+    "title": "Candidate Search",
+    "keywords": ["candidate", "search talent"],
+    "content": "Employers can discover skilled talent aligned with workforce requirements.",
+    "source": "NSDC",
+    "page": "Hiring"
+  },
+  {
+    "id": "employer_003",
+    "category": "Employer",
+    "title": "Apprenticeship Programs",
+    "keywords": ["apprenticeship", "internship"],
+    "content": "Industry partners can participate in apprenticeship and workforce development programs.",
+    "source": "NSDC",
+    "page": "Industry"
+  },
+  {
+    "id": "employer_004",
+    "category": "Employer",
+    "title": "Workforce Upskilling",
+    "keywords": ["upskill", "employee training"],
+    "content": "Organizations can support workforce upskilling through structured training initiatives.",
+    "source": "NSDC",
+    "page": "Upskilling"
+  },
+  {
+    "id": "employer_005",
+    "category": "Employer",
+    "title": "Industry Collaboration",
+    "keywords": ["industry partnership"],
+    "content": "Industry collaboration helps align academic programs with real workforce needs.",
+    "source": "NSDC",
+    "page": "Partnership"
+  },
+  {
+    "id": "employer_006",
+    "category": "Employer",
+    "title": "Job Readiness",
+    "keywords": ["job readiness", "employability"],
+    "content": "Skill development programs focus on improving employability and practical workplace skills.",
+    "source": "NSDC",
+    "page": "Career"
+  },
+
+  {
+    "id": "support_001",
+    "category": "Support",
+    "title": "Technical Support Portal",
+    "keywords": ["support", "technical support"],
+    "content": "Use the official NSDC Support portal for verified technical assistance.",
+    "source": "NSDC Support",
+    "page": "Support"
+  },
+  {
+    "id": "support_002",
+    "category": "Support",
+    "title": "Contact Customer Support",
+    "keywords": ["contact", "customer care"],
+    "content": "Users can contact official support channels for account specific assistance.",
+    "source": "NSDC Support",
+    "page": "Contact"
+  },
+  {
+    "id": "support_003",
+    "category": "Support",
+    "title": "Report Technical Issue",
+    "keywords": ["bug", "technical issue"],
+    "content": "Technical platform issues should be reported through the official support workflow.",
+    "source": "NSDC Support",
+    "page": "Support"
+  },
+  {
+    "id": "support_004",
+    "category": "Support",
+    "title": "Account Recovery",
+    "keywords": ["recover account"],
+    "content": "Account recovery should always be completed using official verification methods.",
+    "source": "NSDC Support",
+    "page": "Security"
+  },
+  {
+    "id": "support_005",
+    "category": "Support",
+    "title": "Security Policy",
+    "keywords": ["security", "privacy"],
+    "content": "Never share passwords, OTPs or Aadhaar details with the chatbot.",
+    "source": "NSDC Security",
+    "page": "Security"
+  },
+  {
+    "id": "support_006",
+    "category": "Support",
+    "title": "Safe Verification",
+    "keywords": ["safe verification"],
+    "content": "Identity verification must occur only through official NSDC systems.",
+    "source": "NSDC Security",
+    "page": "Security"
+  },
+  {
+    "id": "support_007",
+    "category": "Support",
+    "title": "Website Navigation",
+    "keywords": ["website", "portal help"],
+    "content": "The chatbot can guide users through the NSDC website and explain available services.",
+    "source": "NSDC",
+    "page": "Navigation"
+  },
+  {
+    "id": "support_008",
+    "category": "Support",
+    "title": "General Help",
+    "keywords": ["help", "guide"],
+    "content": "The NSDC AI Assistant provides guidance for learners, institutions, employers and training partners.",
+    "source": "NSDC",
+    "page": "Overview"
+  }
+]
