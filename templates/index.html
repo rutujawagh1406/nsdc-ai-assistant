@@ -165,27 +165,27 @@ function save(msg){
 
 }
 
-function addMessage(text,sender,meta={},persist=true){
+function addMessage(text, sender, meta = {}, persist = true){
 
   const div = document.createElement("div")
+  div.className = sender === "user" ? "user-message" : "bot-message"
 
-  div.className = sender==="user" ? "user-message":"bot-message"
+  div.textContent = text
 
-  div.innerHTML = `
-    <div>${text}</div>
-    ${meta.source ? `<div class="source">${meta.category || "NSDC"} • ${meta.source}</div>`:""}
-  `
+  if(sender === "bot" && meta.source){
+      const source = document.createElement("div")
+      source.className = "source"
+      source.textContent = `${meta.category || "NSDC"} • ${meta.source}`
+      div.appendChild(source)
+  }
 
   chatBody.appendChild(div)
 
   if(persist){
-
-    save({text,sender,meta})
-
+      save({text,sender,meta})
   }
 
   scrollBottom()
-
 }
 
 function typing(){
