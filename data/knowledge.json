@@ -1,162 +1,430 @@
-[
-  {
-    "category": "General",
-    "title": "What is NSDC?",
-    "content": "The National Skill Development Corporation (NSDC) is a public-private organization under the Ministry of Skill Development and Entrepreneurship that promotes skill development, vocational training, apprenticeships, and employability across India.",
-    "keywords": ["nsdc", "what is nsdc", "skill development", "about nsdc"],
-    "source": "NSDC",
-    "page": "/about"
+{
+  "_meta": {
+    "compiled_date": "2026-09-23",
+    "version": "2.0",
+    "description": "Merged production-ready knowledge base (Claude + Rutuja), deduplicated and structured."
   },
-  {
-    "category": "General",
-    "title": "What is Skill India Digital?",
-    "content": "Skill India Digital is the unified digital platform where learners can register, complete e-KYC, discover skill courses, apply for batches, access apprenticeships, and manage their learning profile.",
-    "keywords": ["skill india", "skill india digital", "sidh", "platform"],
-    "source": "Skill India Digital",
-    "page": "/home"
-  },
-  {
-    "category": "Learner",
-    "title": "Who can register?",
-    "content": "Any learner interested in skill development can create a Skill India Digital account using their mobile number. Eligibility for specific courses depends on the individual program.",
-    "keywords": ["register", "eligibility", "learner", "signup"],
-    "source": "Skill India Digital",
-    "page": "/registration"
-  },
-  {
-    "category": "Learner",
-    "title": "Create Skill India Digital account",
-    "content": "Open Skill India Digital, click Register, enter your mobile number, verify the OTP, create your account PIN/password, and proceed to complete your learner profile.",
-    "keywords": ["register", "otp", "mobile", "create account"],
-    "source": "Skill India Digital",
-    "page": "/registration"
-  },
-  {
-    "category": "Learner",
-    "title": "Login to Skill India Digital",
-    "content": "Use your registered mobile number and the 4-digit account PIN/password created during registration to log into your learner account.",
-    "keywords": ["login", "password", "pin", "mobile login"],
-    "source": "Skill India Digital",
-    "page": "/login"
-  },
-  {
-    "category": "Learner",
-    "title": "Forgot login password",
-    "content": "If you cannot access your account, use the registered mobile number to verify your identity and reset your account PIN/password through OTP verification.",
-    "keywords": ["forgot password", "reset pin", "login issue"],
-    "source": "Skill India Digital",
-    "page": "/login"
-  },
-  {
-    "category": "e-KYC",
-    "title": "What is e-KYC?",
-    "content": "e-KYC is the Aadhaar-based identity verification process that validates your learner profile before applying for many Skill India programs and services.",
-    "keywords": ["ekyc", "aadhaar", "verify identity"],
-    "source": "Skill India Digital",
-    "page": "/ekyc"
-  },
-  {
-    "category": "e-KYC",
-    "title": "Complete Aadhaar OTP e-KYC",
-    "content": "Login to Skill India Digital, open Complete your e-KYC, enter your Aadhaar number, provide consent, receive the OTP on the Aadhaar-linked mobile number, and verify successfully.",
-    "keywords": ["otp ekyc", "aadhaar otp", "verify aadhaar"],
-    "source": "Skill India Digital",
-    "page": "/ekyc"
-  },
-  {
-    "category": "e-KYC",
-    "title": "Complete biometric e-KYC",
-    "content": "Users with a supported biometric fingerprint device can choose the Biometric option during e-KYC and authenticate using their fingerprint instead of OTP.",
-    "keywords": ["biometric", "fingerprint", "ekyc device"],
-    "source": "Skill India Digital",
-    "page": "/ekyc/biometric"
-  },
-  {
-    "category": "e-KYC",
-    "title": "Not receiving Aadhaar OTP",
-    "content": "Check whether your mobile number is linked with Aadhaar, verify network connectivity, and retry after some time. If the issue continues, contact Skill India Digital support.",
-    "keywords": ["otp not received", "aadhaar issue", "ekyc failed"],
-    "source": "NSDC Support",
-    "page": "/support/ekyc"
-  },
-  {
-    "category": "Courses",
-    "title": "Find skill courses",
-    "content": "Open the Courses section and search using sector, job role, location, training provider, or scheme to discover relevant skill development programs.",
-    "keywords": ["find course", "search course", "job role", "sector"],
-    "source": "Skill India Digital",
-    "page": "/courses"
-  },
-  {
-    "category": "Courses",
-    "title": "Search by sector",
-    "content": "Courses are organized across multiple sectors such as IT, Healthcare, Electronics, Retail, Tourism, Agriculture, and many other industry domains.",
-    "keywords": ["sector", "it course", "healthcare", "retail"],
-    "source": "Skill India Digital",
-    "page": "/courses"
-  },
-  {
-    "category": "Batches",
-    "title": "Apply for a training batch",
-    "content": "After completing e-KYC, select a scheme, choose a job role, review available batches, verify the training centre and timing, then click Show Interest.",
-    "keywords": ["batch", "apply batch", "show interest"],
-    "source": "Skill India Digital",
-    "page": "/batches"
-  },
-  {
-    "category": "Batches",
-    "title": "Maximum batch selection",
-    "content": "A learner can show interest in up to five training batches while applying through Skill India Digital.",
-    "keywords": ["5 batches", "maximum batch", "show interest"],
-    "source": "Skill India Digital",
-    "page": "/batches"
-  },
-  {
-    "category": "Batches",
-    "title": "Track application status",
-    "content": "Go to My Dashboard → Applications to view Pending, Approved, and Accepted applications after applying for training batches.",
-    "keywords": ["application status", "pending", "approved", "accepted"],
-    "source": "Skill India Digital",
-    "page": "/dashboard/applications"
-  },
-  {
-    "category": "Dashboard",
-    "title": "What is My Dashboard?",
-    "content": "The learner dashboard allows you to manage your profile, courses, applications, batches, certificates, and learning progress from one place.",
-    "keywords": ["dashboard", "profile", "applications"],
-    "source": "Skill India Digital",
-    "page": "/dashboard"
-  },
-  {
-    "category": "Certificates",
-    "title": "Digital certificates",
-    "content": "Eligible learners receive digital certificates after successfully completing approved training and certification processes. Certificate availability depends on the specific program.",
-    "keywords": ["certificate", "digital certificate", "completion"],
-    "source": "Skill India Digital",
-    "page": "/certificates"
-  },
-  {
-    "category": "Employer",
-    "title": "What can employers do?",
-    "content": "Employers can discover skilled candidates, participate in apprenticeship and hiring initiatives, and engage with Skill India talent through NSDC's ecosystem.",
-    "keywords": ["employer", "hire", "candidate search"],
-    "source": "NSDC",
-    "page": "/employer"
-  },
-  {
-    "category": "Institution",
-    "title": "Training Partners and Institutions",
-    "content": "Training Partners can manage centres, create courses, create batches, enroll candidates, record attendance, and support assessment through the NSDC ecosystem.",
-    "keywords": ["training partner", "institution", "batch creation"],
-    "source": "NSDC Academy",
-    "page": "/training-partner"
-  },
-  {
-    "category": "Support",
-    "title": "Technical support",
-    "content": "If you experience registration, login, e-KYC, or batch-related issues, submit a support ticket through the official NSDC Technical Support portal with your registered details and issue description.",
-    "keywords": ["support", "technical issue", "ticket", "help"],
-    "source": "NSDC Technical Support",
-    "page": "/support"
-  }
-]
+  "entries": [
+    {
+      "id": "GEN_001",
+      "category": "General",
+      "intent": "general",
+      "title": "What is NSDC?",
+      "content": "The National Skill Development Corporation (NSDC) is a not-for-profit public limited company operating under the Ministry of Skill Development & Entrepreneurship (MSDE). It promotes vocational education, skill development, apprenticeships and employability through a public-private partnership model.",
+      "keywords": [
+        "nsdc",
+        "what is nsdc",
+        "public private partnership"
+      ],
+      "related": [
+        "GEN_002"
+      ],
+      "source": "NSDC Official",
+      "page": "/about",
+      "source_url": "https://nsdcindia.org/node/18",
+      "verified": true
+    },
+    {
+      "id": "GEN_002",
+      "category": "General",
+      "intent": "general",
+      "title": "NSDC's Mission",
+      "content": "NSDC is the strategic implementation and knowledge partner of the Skill India Mission. It supports futuristic skills, enterprises, start-ups and organizations through funding, concessional loans and skill ecosystem development.",
+      "keywords": [
+        "mission",
+        "skill india mission",
+        "funding"
+      ],
+      "related": [
+        "GEN_001"
+      ],
+      "source": "NSDC Official",
+      "page": "/about",
+      "source_url": "https://nsdcindia.org/node/18",
+      "verified": true
+    },
+    {
+      "id": "GEN_003",
+      "category": "General",
+      "intent": "general",
+      "title": "What is Skill India Digital?",
+      "content": "Skill India Digital (SID/SIDH) is the unified platform where learners register, complete e-KYC, discover courses, apply for training batches, access apprenticeships and manage their learner profile and certificates.",
+      "keywords": [
+        "skill india digital",
+        "sid",
+        "sidh",
+        "digital hub"
+      ],
+      "related": [
+        "REG_001"
+      ],
+      "source": "Skill India Digital",
+      "page": "/home",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "REG_001",
+      "category": "Learner",
+      "intent": "registration",
+      "title": "Create a Skill India Digital Account",
+      "content": "Visit Skill India Digital, click Register, enter your mobile number, verify the OTP, create your account PIN, complete Aadhaar e-KYC and finish your learner profile. You can then browse schemes and apply for training programs.",
+      "keywords": [
+        "register",
+        "signup",
+        "otp",
+        "learner registration"
+      ],
+      "related": [
+        "REG_002",
+        "DASH_001"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/registration",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "REG_002",
+      "category": "Learner",
+      "intent": "ekyc",
+      "title": "Complete Aadhaar e-KYC (OTP)",
+      "content": "During registration, enter your Aadhaar number, provide consent and verify the OTP sent to your Aadhaar-linked mobile number. Successful verification activates your learner profile.",
+      "keywords": [
+        "ekyc",
+        "aadhaar",
+        "otp verification"
+      ],
+      "related": [
+        "REG_003"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/ekyc",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "REG_003",
+      "category": "Learner",
+      "intent": "ekyc",
+      "title": "Complete Biometric e-KYC",
+      "content": "If your Aadhaar-linked mobile is unavailable, choose the Biometric option during e-KYC and authenticate using a supported fingerprint or iris device.",
+      "keywords": [
+        "biometric",
+        "fingerprint",
+        "iris",
+        "ekyc"
+      ],
+      "related": [
+        "REG_002"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/ekyc/biometric",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "LOGIN_001",
+      "category": "Learner",
+      "intent": "login",
+      "title": "Login to Skill India Digital",
+      "content": "Use your registered mobile number and the 4-digit account PIN created during registration to access your learner account.",
+      "keywords": [
+        "login",
+        "pin",
+        "password",
+        "mobile login"
+      ],
+      "related": [
+        "LOGIN_002"
+      ],
+      "source": "Skill India Digital",
+      "page": "/login",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "LOGIN_002",
+      "category": "Learner",
+      "intent": "forgot_password",
+      "title": "Forgot Account PIN",
+      "content": "Select Forgot Password, verify your registered mobile number using OTP and create a new 4-digit account PIN.",
+      "keywords": [
+        "forgot password",
+        "reset pin",
+        "otp"
+      ],
+      "related": [
+        "LOGIN_001"
+      ],
+      "source": "Skill India Digital",
+      "page": "/login",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "BATCH_001",
+      "category": "Batches",
+      "intent": "batch_application",
+      "title": "Apply for a Training Batch",
+      "content": "After e-KYC, select the scheme, choose a job role, review available batches, verify the training centre and timings, select up to five batches and click Show Interest.",
+      "keywords": [
+        "batch",
+        "apply batch",
+        "show interest",
+        "job role"
+      ],
+      "related": [
+        "BATCH_002"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/batches",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "BATCH_002",
+      "category": "Batches",
+      "intent": "batch_status",
+      "title": "Track Batch Application Status",
+      "content": "Applications move through Pending, Approved and Accepted stages. After the Training Centre approves your request, you must accept the invitation before enrollment is completed.",
+      "keywords": [
+        "pending",
+        "approved",
+        "accepted",
+        "application status"
+      ],
+      "related": [
+        "BATCH_001"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/dashboard/applications",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "BATCH_003",
+      "category": "Batches",
+      "intent": "troubleshooting",
+      "title": "Job Role Not Visible",
+      "content": "Reload the portal, select the correct scheme and sector, then browse View All Job Roles. Verify the Training Centre, Partner and batch timings before applying.",
+      "keywords": [
+        "job role not visible",
+        "batch issue"
+      ],
+      "related": [
+        "BATCH_001"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/batches",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "COURSE_001",
+      "category": "Courses",
+      "intent": "course_search",
+      "title": "Find Skill Courses",
+      "content": "Search courses using sector, job role, location, training provider or government scheme. Skill India Digital supports discovery across multiple industry sectors.",
+      "keywords": [
+        "find course",
+        "sector",
+        "job role",
+        "training provider"
+      ],
+      "related": [
+        "COURSE_002"
+      ],
+      "source": "Skill India Digital",
+      "page": "/courses",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "COURSE_002",
+      "category": "Courses",
+      "intent": "course_search",
+      "title": "Available Course Sectors",
+      "content": "Courses are available across IT, Healthcare, Electronics, Retail, Tourism, Agriculture, Automotive, Logistics and several other industry domains.",
+      "keywords": [
+        "it",
+        "healthcare",
+        "retail",
+        "electronics",
+        "tourism"
+      ],
+      "related": [
+        "COURSE_001"
+      ],
+      "source": "Skill India Digital",
+      "page": "/courses",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "DASH_001",
+      "category": "Dashboard",
+      "intent": "dashboard",
+      "title": "My Dashboard",
+      "content": "The learner dashboard lets you manage your profile, applications, enrolled batches, certificates and learning progress from one place.",
+      "keywords": [
+        "dashboard",
+        "applications",
+        "profile",
+        "progress"
+      ],
+      "related": [
+        "CERT_001"
+      ],
+      "source": "Skill India Digital",
+      "page": "/dashboard",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "CERT_001",
+      "category": "Certificates",
+      "intent": "certificate",
+      "title": "Digital Certificates",
+      "content": "Eligible learners receive digital certificates after successfully completing approved training and assessment. Certificate availability depends on the specific program.",
+      "keywords": [
+        "certificate",
+        "digital certificate",
+        "completion"
+      ],
+      "related": [
+        "DASH_001"
+      ],
+      "source": "Skill India Digital",
+      "page": "/certificates",
+      "source_url": "https://skillindiadigital.gov.in",
+      "verified": true
+    },
+    {
+      "id": "EMP_001",
+      "category": "Employer",
+      "intent": "employer",
+      "title": "Employer Services",
+      "content": "Employers can discover skilled candidates, participate in apprenticeship and hiring initiatives, and engage with Skill India talent through the NSDC ecosystem.",
+      "keywords": [
+        "employer",
+        "hire",
+        "candidate search"
+      ],
+      "related": [],
+      "source": "NSDC",
+      "page": "/employer",
+      "source_url": "https://nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "INST_001",
+      "category": "Institution",
+      "intent": "training_partner",
+      "title": "Training Partners & Institutions",
+      "content": "Training Partners can manage centres, create courses, create batches, enroll candidates, record attendance and support assessments through the NSDC ecosystem.",
+      "keywords": [
+        "training partner",
+        "institution",
+        "batch creation"
+      ],
+      "related": [],
+      "source": "NSDC Academy",
+      "page": "/training-partner",
+      "source_url": "https://nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "SUP_001",
+      "category": "Support",
+      "intent": "technical_support",
+      "title": "Technical Support",
+      "content": "If you experience registration, login, e-KYC, certificate or batch issues, submit a support ticket with your registered details and issue description through the official NSDC Support Portal.",
+      "keywords": [
+        "support",
+        "technical issue",
+        "ticket",
+        "help"
+      ],
+      "related": [
+        "LOGIN_002",
+        "REG_002"
+      ],
+      "source": "NSDC Technical Support",
+      "page": "/support",
+      "source_url": "https://support.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "CONTACT_001",
+      "category": "Contact",
+      "intent": "contact",
+      "title": "Student Helpline",
+      "content": "The verified NSDC Student Helpline number is 8800055555. Training Partners have a separate helpline at 9289200333.",
+      "keywords": [
+        "helpline",
+        "contact",
+        "phone number"
+      ],
+      "related": [],
+      "source": "NSDC Official",
+      "page": "/contact",
+      "source_url": "https://worldskills.nsdcindia.org",
+      "verified": true
+    },
+    {
+      "id": "FAQ_001",
+      "category": "FAQ",
+      "intent": "apprenticeship",
+      "title": "What is Apprenticeship Training?",
+      "content": "Apprenticeship training combines basic training with structured on-the-job practical training under a formal apprenticeship contract in an industry or establishment.",
+      "keywords": [
+        "apprenticeship",
+        "ojt",
+        "on the job training"
+      ],
+      "related": [],
+      "source": "NSDC FAQ",
+      "page": "/faq",
+      "source_url": "https://nsdcindia.org/frequently-asked-questions",
+      "verified": true
+    },
+    {
+      "id": "FAQ_002",
+      "category": "FAQ",
+      "intent": "apprenticeship",
+      "title": "Which sectors support Apprenticeships?",
+      "content": "Apprenticeship programs are available across both manufacturing and service sectors in India.",
+      "keywords": [
+        "manufacturing",
+        "service sector",
+        "apprenticeship"
+      ],
+      "related": [
+        "FAQ_001"
+      ],
+      "source": "NSDC FAQ",
+      "page": "/faq",
+      "source_url": "https://nsdcindia.org/frequently-asked-questions",
+      "verified": true
+    },
+    {
+      "id": "FAQ_003",
+      "category": "FAQ",
+      "intent": "course_format",
+      "title": "NSDC Academy Course Formats",
+      "content": "NSDC Academy offers learning in online, offline and hybrid formats depending on the course and training provider.",
+      "keywords": [
+        "online",
+        "offline",
+        "hybrid",
+        "academy"
+      ],
+      "related": [],
+      "source": "NSDC FAQ",
+      "page": "/faq",
+      "source_url": "https://nsdcindia.org/frequently-asked-questions",
+      "verified": true
+    }
+  ]
+}

@@ -10,8 +10,7 @@ body{
   color:#1F2937;
 }
 
-/* ================= NAVBAR ================= */
-
+/*================= NAVBAR ================= */
 .navbar{
   height:78px;
   padding:0 36px;
@@ -340,7 +339,7 @@ body{
   width:8px;
   height:8px;
   border-radius:50%;
-  background:#005BAC;
+  background:#2a7ec7;
   animation:blink 1.4s infinite;
 }
 
