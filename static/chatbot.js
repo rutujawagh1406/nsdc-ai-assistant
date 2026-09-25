@@ -53,7 +53,9 @@ function addMessage(text, sender, meta = {}, persist = true){
   if(sender === "bot" && meta.page){
     const link = document.createElement("a")
     link.className = "page-link"
-    link.href = NSDC_BASE + meta.page
+    link.href = meta.page === "/courses"
+      ? meta.page
+      : NSDC_BASE + meta.page
     link.target = "_blank"
     link.rel = "noopener noreferrer"
     let buttonText = "Open Page"

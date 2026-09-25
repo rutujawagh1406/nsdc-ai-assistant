@@ -13,8 +13,13 @@ def test_health_endpoint():
     assert response.json()["status"] == "running"
 
 
-def test_chat_endpoint_returns_json_for_empty_message():
+def test_chat_endpoint_rejects_empty_message():
     response = client.post("/chat", json={"message": ""})
 
-    assert response.status_code == 200
-    assert set(response.json()) == {"answer", "source", "page", "category"}
+    assert response.status_code == 422
+
+
+def test_chat_endpoint_rejects_oversized_message():
+    response = client.post("/chat", json={"message": "x" * 501})
+
+    assert response.status_code == 422

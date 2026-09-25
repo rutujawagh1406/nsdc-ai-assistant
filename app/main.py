@@ -7,9 +7,9 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-from app.chatbot import get_response 
+from app.chatbot import get_response
 from app.course_catalog import get_course, load_courses
 
 
@@ -18,7 +18,6 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s %(message)s",
 )
-LOGGER = logging.getLogger(__name__)
 
 # ----------------------------------------------------
 # App Configuration
@@ -43,7 +42,7 @@ templates = Jinja2Templates(
 # ----------------------------------------------------
 
 class ChatRequest(BaseModel):
-    message: str
+    message: str = Field(..., min_length=1, max_length=500)
     category: Optional[str] = None
 
 # ----------------------------------------------------
@@ -66,7 +65,10 @@ async def health():
 
 @app.post("/chat")
 async def chat(data: ChatRequest):
-    return await get_response(data.message, data.category)
+    message = data.message.strip()
+    if not message:
+        raise HTTPException(status_code=422, detail="Message cannot be empty")
+    return await get_response(message, data.category)
 
 @app.get("/courses", response_class=HTMLResponse)
 async def courses(request: Request):

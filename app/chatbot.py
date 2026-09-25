@@ -3,7 +3,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Union
 
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
@@ -29,23 +29,28 @@ logger = logging.getLogger(__name__)
 # Load Knowledge Base
 # =====================================================
 
-try:
-    with open(BASE_DIR / "data" / "knowledge.json", "r", encoding="utf-8") as f:
-        raw_data = json.load(f)
+def load_knowledge(path: Union[str, Path]) -> List[Dict]:
+    try:
+        with Path(path).open(encoding="utf-8") as knowledge_file:
+            raw_data = json.load(knowledge_file)
+    except (OSError, json.JSONDecodeError):
+        return []
 
-        #Supports both old and new formats of knowledge.json
-        if isinstance(raw_data, dict):
-            KNOWLEDGE = raw_data.get("entries", [])
-        elif isinstance(raw_data, list):
-            KNOWLEDGE = raw_data
-        else: 
-            KNOWLEDGE = []
+    entries = raw_data.get("entries", []) if isinstance(raw_data, dict) else raw_data
+    if not isinstance(entries, list):
+        return []
 
-    logger.info(f"Loaded {len(KNOWLEDGE)} knowledge documents.")
+    required_fields = ("category", "title", "content", "keywords", "source")
+    return [
+        entry for entry in entries
+        if isinstance(entry, dict)
+        and all(field in entry for field in required_fields)
+        and isinstance(entry["keywords"], list)
+    ]
 
-except Exception as e:
-    logger.exception("Failed to load knowledge base.")
-    KNOWLEDGE = []
+
+KNOWLEDGE = load_knowledge(BASE_DIR / "data" / "knowledge.json")
+logger.info("Loaded %d knowledge documents.", len(KNOWLEDGE))
     
 
 # =====================================================
@@ -98,31 +103,29 @@ def normalize(text: str) -> str:
 
 def find_course_cards(question: str) -> List[Dict[str, str]]:
     normalized = normalize(question)
+    question_words = set(normalized.split())
     course_terms = ("course", "courses", "program", "programs", "browse", "recommend")
-    category_terms = {
-        "ai": "Artificial Intelligence",
-        "artificial intelligence": "Artificial Intelligence",
-        "animation": "Animation",
-        "vfx": "Animation",
-        "filmmaking": "Filmmaking",
-        "film": "Filmmaking",
-        "creative technology": "Creative Technology",
-        "design": "Creative Technology",
-        "digital skills": "Digital Skills",
-        "web development": "Digital Skills",
-    }
+    course_topics = (
+        "ai", "animation", "vfx", "film", "filmmaking", "acting", "music",
+        "sound", "script", "editor", "creator", "influencer", "avatar", "ar",
+        "vr", "design",
+    )
 
-    has_category = any(term in normalized for term in category_terms)
+    selected_topics = [topic for topic in course_topics if topic in question_words]
+    has_category = bool(selected_topics)
     if not any(term in normalized for term in course_terms) and not has_category:
         return []
 
-    selected_categories = {
-        category for term, category in category_terms.items() if term in normalized
-    }
-    matches = [
-        course for course in COURSES
-        if not selected_categories or course["category"] in selected_categories
-    ]
+    matches = []
+    for course in COURSES:
+        title = normalize(course["title"])
+        if not selected_topics or any(
+            topic in title
+            or topic == "animation" and "animator" in title
+            or topic == "film" and "filmmaking" in title
+            for topic in selected_topics
+        ):
+            matches.append(course)
     return [course_card(course) for course in matches[:6]]
 
 # =====================================================
@@ -132,7 +135,12 @@ def find_course_cards(question: str) -> List[Dict[str, str]]:
 def retrieve(question: str) -> List[Dict]:
 
     question = normalize(question)
-    question_words = set(question.split())
+    stop_words = {
+        "a", "an", "and", "are", "can", "do", "for", "how", "i", "in",
+        "is", "it", "me", "my", "of", "on", "or", "the", "to", "what",
+        "with", "you", "your",
+    }
+    question_words = set(question.split()) - stop_words
 
     scored_docs = []
 
@@ -202,18 +210,18 @@ def build_context(docs: List[Dict]) -> str:
 
         sections.append(
             f"""
-Category: {doc['category']}
+Category: {doc.get('category', 'Unknown')}
 
-Title: {doc['title']}
+Title: {doc.get('title', 'Untitled')}
 
 Content:
-{doc['content']}
+{doc.get('content', '')}
 
 Source:
-{doc['source']}
+{doc.get('source', 'Unknown')}
 
 Page:
-{doc['page']}
+{doc.get('page', '')}
 """
         )
 
@@ -303,11 +311,11 @@ async def get_response(question: str, category: str = None):
             "category": top["category"]
         }
 
-    except Exception as e:
+    except Exception:
         logger.exception("OpenRouter Error")
 
         return {
-            "answer": f"DEBUG: {str(e)}",
+            "answer": "The assistant is temporarily unavailable. Please try again shortly.",
             "source": None,
             "page": None,
             "category": None

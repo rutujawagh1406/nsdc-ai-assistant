@@ -19,7 +19,7 @@ COURSES = load_courses()
 COURSES_BY_ID = {course["id"]: course for course in COURSES if course.get("id")}
 
 
-def get_course(course_id: str) -> Optional[dict[str, Any]]:
+def get_course(course_id: str) -> Optional[Dict[str, Any]]:
     return COURSES_BY_ID.get(course_id)
 
 
