@@ -8,6 +8,8 @@ from typing import Dict, List
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
+from app.course_catalog import COURSES, course_card
+
 # =====================================================
 # Configuration
 # =====================================================
@@ -28,16 +30,23 @@ logger = logging.getLogger(__name__)
 # =====================================================
 
 try:
-    with open(
-        BASE_DIR / "data" / "knowledge.json",
-        "r",
-        encoding="utf-8"
-    ) as f:
-        KNOWLEDGE = json.load(f)
+    with open(BASE_DIR / "data" / "knowledge.json", "r", encoding="utf-8") as f:
+        raw_data = json.load(f)
+
+        #Supports both old and new formats of knowledge.json
+        if isinstance(raw_data, dict):
+            KNOWLEDGE = raw_data.get("entries", [])
+        elif isinstance(raw_data, list):
+            KNOWLEDGE = raw_data
+        else: 
+            KNOWLEDGE = []
+
+    logger.info(f"Loaded {len(KNOWLEDGE)} knowledge documents.")
 
 except Exception as e:
-    logger.error(f"Knowledge base failed to load: {e}")
+    logger.exception("Failed to load knowledge base.")
     KNOWLEDGE = []
+    
 
 # =====================================================
 # OpenRouter Client
@@ -86,6 +95,36 @@ def normalize(text: str) -> str:
     text = re.sub(r"[^\w\s]", " ", text)
     return " ".join(text.split())
 
+
+def find_course_cards(question: str) -> List[Dict[str, str]]:
+    normalized = normalize(question)
+    course_terms = ("course", "courses", "program", "programs", "browse", "recommend")
+    category_terms = {
+        "ai": "Artificial Intelligence",
+        "artificial intelligence": "Artificial Intelligence",
+        "animation": "Animation",
+        "vfx": "Animation",
+        "filmmaking": "Filmmaking",
+        "film": "Filmmaking",
+        "creative technology": "Creative Technology",
+        "design": "Creative Technology",
+        "digital skills": "Digital Skills",
+        "web development": "Digital Skills",
+    }
+
+    has_category = any(term in normalized for term in category_terms)
+    if not any(term in normalized for term in course_terms) and not has_category:
+        return []
+
+    selected_categories = {
+        category for term, category in category_terms.items() if term in normalized
+    }
+    matches = [
+        course for course in COURSES
+        if not selected_categories or course["category"] in selected_categories
+    ]
+    return [course_card(course) for course in matches[:6]]
+
 # =====================================================
 # Weighted Retrieval Engine
 # =====================================================
@@ -101,9 +140,12 @@ def retrieve(question: str) -> List[Dict]:
 
         score = 0
 
-        title = normalize(doc["title"])
-        category = normalize(doc["category"])
-        content = normalize(doc["content"])
+        title = normalize(doc.get("title", ""))
+        category = normalize(doc.get("category", ""))
+        content = normalize(doc.get("content", ""))
+
+
+        keywords = doc.get("keywords", [])
 
         # ---------- Title ----------
         for word in question_words:
@@ -115,8 +157,7 @@ def retrieve(question: str) -> List[Dict]:
             score += 3
 
         # ---------- Keywords ----------
-        for keyword in doc["keywords"]:
-
+        for keyword in keywords:
             keyword = normalize(keyword)
 
             if keyword in question:
@@ -216,6 +257,17 @@ Question:
 # =====================================================
 
 async def get_response(question: str, category: str = None):
+
+    course_cards = find_course_cards(question)
+    if course_cards:
+        category_label = course_cards[0]["category"] if len(course_cards) == 1 else "Courses"
+        return {
+            "answer": "Here are our Eros AIVidya programs. Open a course to explore its curriculum and career outcomes.",
+            "source": "Eros AIVidya Course Catalogue",
+            "page": "/courses",
+            "category": category_label,
+            "course_cards": course_cards,
+        }
 
     if not KNOWLEDGE:
         return {

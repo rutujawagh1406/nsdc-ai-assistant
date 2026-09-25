@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses | Eros AIVidya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/courses.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand-link" href="/"><img src="/static/logo.jpg" alt="EROS AIVidya" class="logo-img" /><span><strong>Eros AIVidya</strong><small>AI Career Assistant</small></span></a>
+    <ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/courses">Courses</a></li><li>NSDC</li><li>Contact</li><li>About</li></ul>
+  </nav>
+  <main>
+    <section class="course-hero"><span class="eyebrow">EROS AIVIDYA × NSDC</span><h1>Explore NSDC Certified Programs</h1><p>Browse all Eros AIVidya programs in AI, Animation, Filmmaking, Creative Technology and Digital Skills.</p></section>
+    <section class="courses-wrapper" aria-labelledby="course-list-title">
+      <div class="section-heading"><div><span class="eyebrow">Learn with direction</span><h2 id="course-list-title">Find your next skill</h2></div><span class="course-count">{{ courses|length }} programs</span></div>
+      <div class="course-grid">
+        {% for course in courses %}
+        <article class="course-card">
+          <div class="course-image-wrap"><img src="{{ course.image }}" alt="{{ course.title }} thumbnail" onerror="this.src='/static/logo.jpg'"><span class="certified-badge">NSQF: {{ course.nsqf_aligned }}</span></div>
+          <div class="course-card-content"><span class="course-category">{{ course.category }}</span><h3>{{ course.title }}</h3><p>{{ course.description }}</p><strong class="course-fee">{{ course.fee }}</strong><div class="course-meta"><span>{{ course.duration }}</span><span>{{ course.mode }}</span><span>NSQF: {{ course.nsqf_aligned }}</span></div><a class="course-card-button" href="/course/{{ course.id }}">View Details <span>→</span></a></div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+  {% include "partials/chat_widget.html" %}
+  <script src="/static/chatbot.js"></script>
+</body>
+</html>

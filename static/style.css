@@ -5,6 +5,20 @@
   font-family:'Poppins',sans-serif;
 }
 
+:root{
+  --primary:#0A67C8;
+  --primary-dark:#084C98;
+  --cyan:#18B7E8;
+  --lime:#7ED957;
+
+  --text:#17326C;
+  --muted:#5F6F85;
+
+  --bg:#F8FCFF;
+  --surface:#FFFFFF;
+  --border:#D8E8F8;
+}
+
 body{
   background:#fff;
   color:#1F2937;
@@ -17,8 +31,9 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid #E5E7EB;
   background:#fff;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
 }
 
 .logo-section{
@@ -27,26 +42,38 @@ body{
   gap:14px;
 }
 
-.logo{
-  width:52px;
-  height:52px;
-  border-radius:12px;
-  background:#005BAC;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
+.logo-img{
+  width:56px;
+  height:56px;
+  object-fit:contain;
+}
+
+.primary-btn{
+  margin-top:30px;
+  background:linear-gradient(90deg,var(--primary),var(--cyan));
+  color:white;
+  border:none;
+  padding:15px 28px;
+  border-radius:14px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 12px 25px rgba(10,103,200,.22);
+  transition:.25s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 30px rgba(10,103,200,.28);
 }
 
 .logo-section h2{
   font-size:15px;
-  color:#17326C;
+  color:var(--text);
 }
 
 .logo-section p{
   font-size:12px;
-  color:#64748B;
+  color:var(--muted);
 }
 
 .nav-links{
@@ -59,9 +86,26 @@ body{
 /* ================= HERO ================= */
 
 .hero{
-  background:#EAF3FE;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(126,217,87,.08), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(24,183,232,.12), transparent 35%),
+    linear-gradient(135deg,#F9FDFF,#EEF8FF);
+
   min-height:calc(100vh - 78px);
   padding:80px 140px;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-140px;
+  top:-60px;
+  width:360px;
+  height:360px;
+  background:radial-gradient(circle,var(--cyan),transparent 70%);
+  opacity:.12;
+  pointer-events:none;
 }
 
 .hero-text{
@@ -69,22 +113,25 @@ body{
 }
 
 .hero span{
-  color:#64748B;
-  font-weight:600;
-  letter-spacing:.5px;
+  color:var(--cyan);
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:13px;
 }
 
 .hero h1{
   font-size:64px;
-  color:#17326C;
+  color:var(--text);
   margin:18px 0;
   line-height:1.08;
 }
 
 .hero p{
   font-size:20px;
-  color:#475569;
-  line-height:1.7;
+  color:var(--muted);
+  line-height:1.75;
+  max-width:620px;
 }
 
 /* ================= CHAT ================= */
@@ -97,7 +144,7 @@ body{
   height:680px;
   background:#fff;
   border-radius:22px;
-  border:1px solid #D7E3F4;
+  border:1px solid var(--border);
   box-shadow:0 18px 45px rgba(0,0,0,.16);
   display:flex;
   flex-direction:column;
@@ -106,8 +153,8 @@ body{
 }
 
 .chat-header{
-  background:#005BAC;
-  color:#fff;
+  background:linear-gradient(90deg,var(--primary),var(--cyan));
+  color:white;
   padding:18px;
 }
 
@@ -177,13 +224,13 @@ body{
 }
 
 .welcome-card h4{
-  color:#17326C;
+  color:var(--text);
   font-size:20px;
   margin-bottom:10px;
 }
 
 .welcome-card p{
-  color:#475569;
+  color:var(--muted);
   margin-bottom:8px;
 }
 
@@ -204,7 +251,7 @@ body{
 .quick-grid button{
   height:108px;
   background:#fff;
-  border:1px solid #D7E3F4;
+  border:1px solid var(--border);
   border-radius:14px;
   cursor:pointer;
   display:flex;
@@ -217,9 +264,10 @@ body{
 }
 
 .quick-grid button:hover{
-  background:#F3F8FF;
-  border-color:#005BAC;
-  transform:translateY(-2px);
+  background:#F6FBFF;
+  border-color:var(--cyan);
+  transform:translateY(-3px);
+box-shadow:0 8px 18px rgba(24,183,232,.15)
 }
 
 .icon{
@@ -228,12 +276,12 @@ body{
 
 .title{
   font-weight:600;
-  color:#17326C;
+  color:var(--text);
 }
 
 .subtitle{
   font-size:11px;
-  color:#64748B;
+  color:var(--muted);
   text-align:center;
   line-height:1.3;
 }
@@ -249,6 +297,7 @@ body{
   word-break:break-word;
   animation:fadeIn .18s ease;
   font-size:14px;
+  background:var(--primary);
 }
 
 .bot-message{
@@ -263,7 +312,7 @@ body{
 .user-message{
   align-self:flex-end;
   margin-left:auto;
-  background:#005BAC;
+  background:var(--primary);
   color:#fff;
   border-bottom-right-radius:6px;
   max-width:72%;
@@ -276,7 +325,7 @@ body{
   padding:4px 10px;
   border-radius:999px;
   background:#E8F1FF;
-  color:#005BAC;
+  color:var(--primary);
   font-size:10px;
   font-weight:600;
 }
@@ -293,7 +342,7 @@ body{
 
 .chat-input input{
   flex:1;
-  border:1px solid #D7E3F4;
+  border:1px solid var(--border);
   border-radius:12px;
   padding:12px 14px;
   outline:none;
@@ -301,7 +350,7 @@ body{
 }
 
 .chat-input input:focus{
-  border-color:#005BAC;
+  border-color:var(--primary);
   box-shadow:0 0 0 3px rgba(0,91,172,.12);
 }
 
@@ -310,7 +359,7 @@ body{
   height:48px;
   border:none;
   border-radius:12px;
-  background:#005BAC;
+  background:var(--primary);
   color:#fff;
   cursor:pointer;
   font-size:18px;
@@ -323,7 +372,7 @@ body{
 .footer{
   text-align:center;
   font-size:11px;
-  color:#64748B;
+  color:var(--muted);
   padding:0 16px 14px;
 }
 
@@ -405,5 +454,58 @@ body{
   width:68px;
   height:68px;
   border-radius:50%;
-  background:#005BAC;
+  background:linear-gradient(135deg,var(--primary),var(--cyan));
 }
+
+.page-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-top:10px;
+  padding:8px 12px;
+
+  background:var(--primary);
+  color:#FFFFFF;
+  text-decoration:none;
+
+  border-radius:10px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+.page-link:hover{
+  background:#0A6BC5;
+  transform:translateY(-1px);
+}
+
+.chat-course-cards{
+  display:grid;
+  gap:8px;
+  margin-top:12px;
+}
+
+.chat-course-card{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  color:var(--text);
+  text-decoration:none;
+  transition:.2s;
+}
+
+.chat-course-card:hover{
+  border-color:var(--cyan);
+  transform:translateY(-1px);
+}
+
+.chat-course-card strong{font-size:12px}
+.chat-course-card span,.chat-course-card small{color:var(--muted);font-size:10px}
+.chat-course-card b{float:right;color:var(--primary);font-weight:600}

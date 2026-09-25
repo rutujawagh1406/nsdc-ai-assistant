@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ course.title }} | Eros AIVidya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/courses.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand-link" href="/">
+      <img src="/static/logo.jpg" alt="EROS AIVidya" class="logo-img" />
+      <span><strong>Eros AIVidya</strong><small>AI Career Assistant</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/courses">Courses</a></li>
+      <li>NSDC</li>
+      <li>Contact</li>
+      <li>About</li>
+    </ul>
+  </nav>
+
+  <main class="course-detail">
+    <section class="detail-hero">
+      <img src="{{ course.image }}" alt="{{ course.title }} course banner" onerror="this.src='/static/logo.jpg'">
+      <div class="detail-hero-content">
+        <span class="eyebrow">{{ course.category }} · NSDC PROGRAM</span>
+        <h1>{{ course.title }}</h1>
+        <p>{{ course.description }}</p>
+        <div class="detail-meta">
+          <span>{{ course.duration }}</span>
+          <span>{{ course.mode }}</span>
+          <strong>NSQF: {{ course.nsqf_aligned }}</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="detail-layout">
+      <div>
+        <section class="detail-section admission-panel">
+          <span class="eyebrow">Plan your enrollment</span>
+          <h2>Admission Information</h2>
+          <div class="admission-grid">
+            <div><span>Course Fee</span><strong>{{ course.fee }}</strong></div>
+            <div><span>NSDC Enrollment Fee</span><strong>{{ course.enrollment_fee }}</strong></div>
+            <div><span>Duration</span><strong>{{ course.duration }} ({{ course.hours }})</strong></div>
+            <div><span>Mode</span><strong>{{ course.mode }}</strong></div>
+            <div><span>Level</span><strong>{{ course.level }}</strong></div>
+            <div><span>Sector</span><strong>{{ course.sector }}</strong></div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <span class="eyebrow">What you will learn</span>
+          <h2>Curriculum</h2>
+          <div class="accordion">
+            {% for item in course.curriculum %}
+            <details {% if loop.first %}open{% endif %}>
+              <summary><span>0{{ loop.index }}</span>{{ item.module }}</summary>
+              <ul>{% for topic in item.topics %}<li>{{ topic }}</li>{% endfor %}</ul>
+            </details>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="detail-section split-section">
+          <div><span class="eyebrow">Your progress</span><h2>Learning Outcomes</h2><ul class="feature-list">{% for item in course.outcomes %}<li>{{ item }}</li>{% endfor %}</ul></div>
+          <div><span class="eyebrow">Where it can lead</span><h2>Career Opportunities</h2><ul class="feature-list">{% for item in course.careers %}<li>{{ item }}</li>{% endfor %}</ul></div>
+        </section>
+      </div>
+
+      <aside class="detail-aside">
+        <section class="tool-panel"><span class="eyebrow">Build with</span><h2>Tools Covered</h2><div class="tool-list">{% for tool in course.tools %}<span>{{ tool }}</span>{% endfor %}</div></section>
+        <section class="apply-panel"><span class="eyebrow">Start your next chapter</span><h2>Ready to begin?</h2><p>Register through Skill India Digital and continue your application with the official NSDC platform.</p><a class="course-cta" href="https://skillindiadigital.gov.in/" target="_blank" rel="noopener noreferrer">Apply through NSDC <span>↗</span></a></section>
+      </aside>
+    </div>
+  </main>
+  {% include "partials/chat_widget.html" %}
+  <script src="/static/chatbot.js"></script>
+</body>
+</html>

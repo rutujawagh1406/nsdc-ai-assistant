@@ -1,0 +1,50 @@
+[
+  {
+    "id":"ai",
+    "title":"AI & Data Science",
+    "sector":"AI",
+    "duration":"9 Months",
+    "description":"Python, Machine Learning and Generative AI",
+    "image":"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800"
+  },
+  {
+    "id":"animation",
+    "title":"Advanced Animation & VFX",
+    "sector":"Animation",
+    "duration":"12 Months",
+    "description":"3D Animation, Maya, Blender and VFX",
+    "image":"https://images.unsplash.com/photo-1561736778-92e52a7769ef?w=800"
+  },
+  {
+    "id":"film",
+    "title":"Digital Filmmaking",
+    "sector":"Filmmaking",
+    "duration":"10 Months",
+    "description":"Direction, Editing and Cinematography",
+    "image":"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800"
+  },
+  {
+    "id":"graphic",
+    "title":"Graphic Design",
+    "sector":"Design",
+    "duration":"6 Months",
+    "description":"Photoshop, Illustrator and Branding",
+    "image":"https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=800"
+  },
+  {
+    "id":"uiux",
+    "title":"UI / UX Design",
+    "sector":"Design",
+    "duration":"8 Months",
+    "description":"Figma, User Research and Product Design",
+    "image":"https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800"
+  },
+  {
+    "id":"game",
+    "title":"Game Art & Design",
+    "sector":"Animation",
+    "duration":"9 Months",
+    "description":"Concept Art and Game Asset Creation",
+    "image":"https://images.unsplash.com/photo-1542751110-97427bbecf20?w=800"
+  }
+]

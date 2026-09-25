@@ -16,30 +16,33 @@
 
 <nav class="navbar">
   <div class="logo-section">
-    <div class="logo">NSDC</div>
+    <img src="/static/logo.jpg" alt="EROS AIVidya" class="logo-img" />
+
     <div>
-      <h2>National Skill Development Corporation</h2>
-      <p>AI Assistant Prototype</p>
+      <h2>Eros AIVidya </h2>
+      <p>AI Career Assistant</p>
     </div>
   </div>
 
   <ul class="nav-links">
     <li>Home</li>
-    <li>Learner</li>
-    <li>Partners</li>
-    <li>Schemes</li>
+    <li><a href="/courses">Courses</a></li>
+    <li>NSDC</li>
+    <li>Contact</li>
     <li>About</li>
   </ul>
 </nav>
 
 <section class="hero">
   <div class="hero-text">
-    <span>NSDC AI ASSISTANT</span>
-    <h1>Skills for a stronger India.</h1>
+    <span>EROS AIVidya x NSDC </span>
+    <h1>Launch Your Creative AI Career.</h1>
     <p>
-      Ask questions about Skill India Digital, registration,
-      courses, e-KYC and learner support.
+      Discover NSDC-certified programs in AI, Animation,
+    Filmmaking, Creative Technology and Digital Skills with
+    personalised career guidance.
     </p>
+    <button class="primary-btn" onclick="location.href='/courses'"> Explore Courses</button>
   </div>
 </section>
 
@@ -55,8 +58,8 @@
       <button id="chatToggle" class="bot-avatar">AI</button>
 
       <div class="header-text">
-        <h3>NSDC Assistant</h3>
-        <p>Your guide to NSDC services</p>
+        <h3>Eros AIVidya </h3>
+        <p>Your AI Career Assistant</p>
       </div>
 
     </div>
@@ -69,42 +72,42 @@
     <div class="welcome-section">
 
       <div class="welcome-card">
-        <h4>Hi! I'm the NSDC Assistant</h4>
+        <h4>Hi! I'm the Eros AIVidya Assistant</h4>
 
         <p>I can help you with:</p>
 
         <ul>
           <li>Registration</li>
-          <li>e-KYC</li>
+          <li>Career Guidance</li>
           <li>Courses & Batches</li>
-          <li>Technical Support</li>
+          <li>Admission &  Support</li>
         </ul>
       </div>
 
       <div class="quick-grid">
 
-        <button onclick="quickAsk('How do I register on Skill India Digital?')">
+        <button onclick="quickAsk('Show me all AI and Animation courses')">
           <div class="icon">👤</div>
-          <div class="title">Register</div>
-          <div class="subtitle">Create Skill India account</div>
+          <div class="title">Browse Courses</div>
+          <div class="subtitle">Explore all 15 NSDC-certified programs</div>
         </button>
 
         <button onclick="quickAsk('Find skill courses')">
-          <div class="icon">📘</div>
-          <div class="title">Find Course</div>
-          <div class="subtitle">Explore skill programs</div>
+          <div class="icon">📚</div>
+          <div class="title">AI Career Guide</div>
+          <div class="subtitle">Get personalized course recommendations</div>
         </button>
 
-        <button onclick="quickAsk('What is e-KYC?')">
-          <div class="icon">🛡️</div>
-          <div class="title">e-KYC</div>
-          <div class="subtitle">Verify Aadhaar profile</div>
+        <button onclick="quickAsk('How do I register through NSDC?')">
+          <div class="icon">🔐</div>
+          <div class="title">NSDC Registration</div>
+          <div class="subtitle">Complete your admission journey</div>
         </button>
 
         <button onclick="quickAsk('How do I get technical support?')">
           <div class="icon">🎧</div>
           <div class="title">Support</div>
-          <div class="subtitle">Technical assistance</div>
+          <div class="subtitle">Talk to Support Team</div>
         </button>
 
       </div>
@@ -126,7 +129,7 @@
   </div>
 
   <div class="footer">
-    Powered by NSDC · Verified responses only
+    Powered by Eros AIVidya · NSDC Aligned
   </div>
 
 </div>
@@ -140,6 +143,12 @@ const chatBody = document.getElementById("chatBody")
 const input = document.getElementById("messageInput")
 
 const HISTORY_KEY = "nsdc-chat-history"
+
+const NSDC_BASE = "https://skillindiadigital.gov.in"
+
+if(window.location.pathname !== "/"){
+  chatWidget.classList.add("collapsed")
+}
 
 function toggleChat(){
 
@@ -167,25 +176,80 @@ function save(msg){
 
 function addMessage(text, sender, meta = {}, persist = true){
 
-  const div = document.createElement("div")
-  div.className = sender === "user" ? "user-message" : "bot-message"
+    const div = document.createElement("div")
+    div.className = sender === "user"
+        ? "user-message"
+        : "bot-message"
 
-  div.textContent = text
+    // Message text
+    const message = document.createElement("div")
+    message.className = "message-text"
+    message.textContent = text
+    div.appendChild(message)
 
-  if(sender === "bot" && meta.source){
-      const source = document.createElement("div")
-      source.className = "source"
-      source.textContent = `${meta.category || "NSDC"} • ${meta.source}`
-      div.appendChild(source)
-  }
+    if(sender === "bot" && meta.course_cards){
+      const cards = document.createElement("div")
+      cards.className = "chat-course-cards"
 
-  chatBody.appendChild(div)
+      meta.course_cards.forEach(course => {
+        const card = document.createElement("a")
+        card.className = "chat-course-card"
+        card.href = `/course/${encodeURIComponent(course.id)}`
+        card.innerHTML = `
+          <strong>${course.title}</strong>
+          <span>${course.category} · ${course.duration}</span>
+          <small>${course.level} <b>View Details →</b></small>`
+        cards.appendChild(card)
+      })
 
-  if(persist){
-      save({text,sender,meta})
-  }
+      div.appendChild(cards)
+    }
 
-  scrollBottom()
+    // Source badge
+    if(sender === "bot" && meta.source){
+        const source = document.createElement("div")
+        source.className = "source"
+        source.textContent = `${meta.category || "NSDC"} • ${meta.source}`
+        div.appendChild(source)
+    }
+
+    // Clickable page button
+    if(sender === "bot" && meta.page){
+        const link = document.createElement("a")
+        link.className = "page-link"
+
+        link.href = NSDC_BASE + meta.page
+        link.target = "_blank"
+        link.rel = "noopener noreferrer"
+
+        let buttonText = "Open Page"
+
+        if(meta.page.includes("courses"))
+            buttonText = "Explore Courses"
+
+        else if(meta.page.includes("registration"))
+            buttonText = "Register Now"
+
+        else if(meta.page.includes("ekyc"))
+            buttonText = "Complete e-KYC"
+
+        else if(meta.page.includes("dashboard"))
+            buttonText = "Open Dashboard"
+
+        else if(meta.page.includes("support"))
+            buttonText = "Get Support"
+
+        link.innerHTML = `${buttonText} ↗`
+        div.appendChild(link)
+    }
+
+    chatBody.appendChild(div)
+
+    if(persist){
+        save({text, sender, meta})
+    }
+
+    scrollBottom()
 }
 
 function typing(){
@@ -271,6 +335,8 @@ input.addEventListener("keypress",(e)=>{
 const history=JSON.parse(sessionStorage.getItem(HISTORY_KEY)||"[]")
 
 history.forEach(m=>addMessage(m.text,m.sender,m.meta,false))
+
+
 
 </script>
 

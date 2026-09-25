@@ -1,0 +1,38 @@
+<div class="chat-widget collapsed" id="chatWidget">
+  <div class="chat-header">
+    <div class="header-left">
+      <button id="chatToggle" class="bot-avatar">AI</button>
+      <div class="header-text">
+        <h3>Eros AIVidya</h3>
+        <p>Your AI Career Assistant</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="welcome-section">
+      <div class="welcome-card">
+        <h4>Hi! I'm the Eros AIVidya Assistant</h4>
+        <p>I can help you with:</p>
+        <ul>
+          <li>Registration</li>
+          <li>Career Guidance</li>
+          <li>Courses &amp; Batches</li>
+          <li>Admission &amp; Support</li>
+        </ul>
+      </div>
+      <div class="quick-grid">
+        <button onclick="quickAsk('Show me all AI and Animation courses')"><div class="icon">👤</div><div class="title">Browse Courses</div><div class="subtitle">Explore all 15 NSDC-certified programs</div></button>
+        <button onclick="quickAsk('Find skill courses')"><div class="icon">📚</div><div class="title">AI Career Guide</div><div class="subtitle">Get personalized course recommendations</div></button>
+        <button onclick="quickAsk('How do I register through NSDC?')"><div class="icon">🔐</div><div class="title">NSDC Registration</div><div class="subtitle">Complete your admission journey</div></button>
+        <button onclick="quickAsk('How do I get technical support?')"><div class="icon">🎧</div><div class="title">Support</div><div class="subtitle">Talk to Support Team</div></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input id="messageInput" type="text" placeholder="Ask your question..." />
+    <button onclick="sendMessage()">➤</button>
+  </div>
+  <div class="footer">Powered by Eros AIVidya · NSDC Aligned</div>
+</div>
